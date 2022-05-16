@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title> My first blog website</title>
+</head>
+<body>
+    <h1>my first blog </h1>
+    {% for post in posts %}
+    <article>
+        <time>published 1.05.2022</time>
+        <h2> my first blog </h2>
+        <time> published : {{ post.Publish_date }}</time>
+        <h2>{{ post.Title }}</h2>
+        <p>{{ post.Text|linebreaksbr }}</p>
+    </article>
+    {% endfor %}
+</body>
+</html>
