@@ -1,17 +1,40 @@
+{% load static %}
 <html>
+ 
 <head>
-    <title> My first blog website</title>
+ 
+<title> My first blog website</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet">
 </head>
+ 
 <body>
-    <h1>my first blog </h1>
-    {% for post in posts %}
-    <article>
-        <time>published 1.05.2022</time>
-        <h2> my first blog </h2>
-        <time> published : {{ post.Publish_date }}</time>
-        <h2>{{ post.Title }}</h2>
-        <p>{{ post.Text|linebreaksbr }}</p>
-    </article>
-    {% endfor %}
+ 
+<header class="page-header">
+        <div class="container">
+                <h1><a href="">My first blog</a></h1>
+        </div>
+</header>
+ 
+ 
+<main class="container">
+        <div class="row">
+                <div class="col">
+                        {% for post in posts %}
+                        <article class="post">
+                                <h2><a href="">{{ post.title }}</a></h2>
+                                <time class="date">
+                                    published: {{ post.publish_date }}
+                                </time>
+                                <p>{{ post.text|linebreaksbr }}</p>
+                        </article>
+                        {% endfor %}
+                </div>
+        </div>
+</main>
+ 
 </body>
 </html>
